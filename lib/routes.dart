@@ -1,5 +1,6 @@
 import 'package:provider/provider.dart';
 import 'package:simpoku_apps/page/Login.dart';
+import 'package:simpoku_apps/page/base.dart';
 import 'package:simpoku_apps/page/homePage.dart';
 import 'package:simpoku_apps/page/homePageUnAuth.dart';
 import 'package:simpoku_apps/page/splashScreen.dart';
@@ -33,8 +34,8 @@ class GenProvider {
         return HomePageUnAuth();
       },
 
-      'home': (context) {
-        return HomePage();
+      'base': (context) {
+        return Base();
       },
 
 

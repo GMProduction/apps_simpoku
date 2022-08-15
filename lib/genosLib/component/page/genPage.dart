@@ -39,9 +39,9 @@ class GenPage extends StatelessWidget {
 
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: statusBarColor ?? Colors.white, // status bar color
-      statusBarBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.dark
+      statusBarColor: statusBarColor ?? GenColor.primaryColor, // status bar color
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.light
     ));
 
 

@@ -139,8 +139,8 @@ class GenCardArtikel extends StatelessWidget {
     return GenCard(
       () {},
       width: double.infinity,
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.symmetric(horizontal: GenDimen.cardMargin, vertical: GenDimen.cardMargin),
+      padding: EdgeInsets.all(15),
+      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Container(
         height: 100,
         width: double.infinity,

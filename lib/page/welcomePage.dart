@@ -12,7 +12,7 @@ class _WelcomePageState extends State<WelcomePage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.pushReplacementNamed(context, "home");
+    Navigator.pushReplacementNamed(context, "base");
   }
 
   Widget _buildFullscreenImage() {
@@ -31,6 +31,13 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white, // status bar color
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark
+    ));
+
     const bodyStyle = TextStyle(fontSize: 19.0);
 
     const pageDecoration = const PageDecoration(
@@ -49,7 +56,7 @@ class _WelcomePageState extends State<WelcomePage> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 16, right: 16),
-            child: _buildImage('images/logo.png', 100),
+            child: _buildImage('images/logo.png', 50),
           ),
         ),
       ),

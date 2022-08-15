@@ -9,7 +9,7 @@ import 'package:simpoku_apps/genosLib/genColor.dart';
 
 import '../genosLib/component/etc/genRow.dart';
 import '../genosLib/component/etc/genShadow.dart';
-import '../genosLib/component/textField.dart';
+import '../genosLib/component/textfield/textField.dart';
 import '../genosLib/genText.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,48 +30,86 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return GenPage(
       appbar: Container(
-        width: double.infinity,
+        color: GenColor.primaryColor,
         child: Column(
           children: [
+            SizedBox(height: 10,),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Container(
-                  width: double.infinity,
-                  height: 100,
+              Expanded(
                   child: Center(
                       child: InkWell(
                           onTap: () {
                             // Navigator.of(context).pop();
                           },
-                          child: CommonPadding(child: TextfieldRound(label: "Pencarian",))
+                          child: CommonPadding(child: TextfieldRound(prefixIcon: Icon(Icons.search), hintText: "Cari Simposium", ))
 
                           )
                       )),
               Container(
-                  width: 80,
-                  height: 80,
                   child: Center(
                       child: InkWell(
                           onTap: () {
                             Navigator.popAndPushNamed(context, "login");
                           },
-                          child: CircleAvatar(
-                            radius: 20.0,
-                            child: Image.network(
-                                "https://cdn0.iconfinder.com/data/icons/google-material-design-3-0/48/ic_account_circle_48px-512.png"),
-                            backgroundColor: Colors.transparent,
-                          )))),
+                          child: Icon(Icons.account_circle, color: Colors.white, size: 40, )))),
+              SizedBox(width: 20,)
               // GenText(
               //   "QR Code",
               //   style: TextStyle(color: Colors.black87, fontSize: 35),
               // )
             ]),
+            SizedBox(height: 10,),
           ],
         ),
       ),
       body: Container(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 20,),
+              Container(
+                padding: EdgeInsets.all(20),
+                width: double.infinity,
+                height: 100,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  color: GenColor.primaryColor,
+                  borderRadius: BorderRadius.all(Radius.circular(20))
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GenText("Hi, (Nama User)", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
+                        GenText("Dokter spesialis ", style: TextStyle( color: Colors.white54),),
+                        SizedBox(height: 5,),
+                      ],
+                    ),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: Colors.white70,
+                      borderRadius: BorderRadius.all(Radius.circular(20))
+                    )
+                    ,child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GenText("Saldo", style: TextStyle()),
+                        GenText("Rp 50.000 ", style: TextStyle( color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),),
+                        SizedBox(height: 5,),
+                      ],
+                    ))
+                  ],
+                ),
+              ),
+              SizedBox(height: GenDimen.afterContent,),
+              CommonPadding(child: GenText("Promo yang tersedia", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black),)),
+              CommonPadding(child: GenText("Promo ini sangat cocok buat kamu", style: TextStyle(fontSize: 12, color: Colors.black54),)),
+              SizedBox(height: 10,),
               Container(
                 height: 200,
                 child: Swiper(
@@ -84,7 +122,10 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   },
-                  pagination: new SwiperPagination(),
+                  pagination: new SwiperPagination(
+                    builder: new DotSwiperPaginationBuilder(
+                        color: Colors.white, activeColor: GenColor.primaryColorLight)
+                  ),
                   itemCount: items.length,
                   viewportFraction: 0.92,
                   scale: 0.95,
@@ -107,6 +148,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(color: GenColor.primaryColor),
                     )),
               ),
+
               SizedBox(
                 height: GenDimen.afterTitle,
               ),

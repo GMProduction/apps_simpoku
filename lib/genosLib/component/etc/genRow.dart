@@ -12,7 +12,7 @@ class RowSpaceBetween extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: paddingHorz ?? 12, vertical: paddingVert ?? 0),
+      padding: EdgeInsets.symmetric(horizontal: paddingHorz ?? 20, vertical: paddingVert ?? 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

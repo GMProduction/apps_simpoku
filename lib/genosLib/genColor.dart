@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class GenColor {
   static const primaryColor = Color(0xff800020);
   static const primaryColorTransparent = Color.fromRGBO( 29, 161, 242, .2);
-  static const primaryColorLight = Color.fromARGB(255, 225, 245, 254);
+  static const primaryColorLight = Color(0xffc61b46);
   static const primaryColor2 = Color.fromARGB(255, 50, 185, 255);
   static const accentColor = Color.fromRGBO(255, 111, 0, 1);
   static const accentColorLight = Color.fromRGBO(255,243,224,1);

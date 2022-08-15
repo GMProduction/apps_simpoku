@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:simpoku_apps/genosLib/genText.dart';
 
@@ -82,7 +83,11 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
 
-
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white, // status bar color
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark
+    ));
 
     if(!loaded){
       startAnim();
@@ -91,6 +96,7 @@ class _SplashScreenState extends State<SplashScreen>
     }
 
     return Scaffold(
+
       body: Container(
         color: Colors.white,
         child: Center(
@@ -103,7 +109,7 @@ class _SplashScreenState extends State<SplashScreen>
                   duration: Duration(milliseconds: 1000),
                   opacity: opacity,
                   child: Image.asset(
-                    'assets/images/logo.png',
+                    'assets/images/logo_simpoku.png',
                     width: 300,
                     fit: BoxFit.fitWidth,
                   ),

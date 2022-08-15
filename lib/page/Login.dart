@@ -150,7 +150,7 @@ class _LoginState extends State<Login> {
               GenButton(
                   text: "Sign in with Google",
                   ontap: () {
-                    Navigator.pushNamed(context, "home");
+                    Navigator.pushNamed(context, "base");
                   },
                   imageleft: "assets/images/icon-google.png",
                   color: Colors.white,
