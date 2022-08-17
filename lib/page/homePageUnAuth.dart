@@ -114,7 +114,7 @@ class _HomePageUnAuthState extends State<HomePageUnAuth> {
                   scrollDirection: Axis.horizontal,
                   children: [
                     GenCardVertical(
-                      () {},
+                      ontap: (){},
                       gambar:
                           "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
                       judul: "SCESAP (International Symposium)",
@@ -122,10 +122,20 @@ class _HomePageUnAuthState extends State<HomePageUnAuth> {
                       tanggal: "15 Juni 2022",
                     ),
                     GenCardVertical(
-                      () {},
+                      ontap: (){},
+                      gambar:
+                      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
+                      judul: "SCESAP (International Symposium)",
+                      kota: "Solo",
+                      tanggal: "15 Juni 2022",
                     ),
                     GenCardVertical(
-                      () {},
+                      ontap: (){},
+                      gambar:
+                      "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
+                      judul: "SCESAP (International Symposium)",
+                      kota: "Solo",
+                      tanggal: "15 Juni 2022",
                     ),
                   ],
                 ),

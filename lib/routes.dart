@@ -1,8 +1,10 @@
 import 'package:provider/provider.dart';
 import 'package:simpoku_apps/page/Login.dart';
 import 'package:simpoku_apps/page/base.dart';
+import 'package:simpoku_apps/page/detailPage.dart';
 import 'package:simpoku_apps/page/homePage.dart';
 import 'package:simpoku_apps/page/homePageUnAuth.dart';
+import 'package:simpoku_apps/page/masukanPendaftar.dart';
 import 'package:simpoku_apps/page/splashScreen.dart';
 import 'package:simpoku_apps/page/welcomePage.dart';
 
@@ -38,6 +40,13 @@ class GenProvider {
         return Base();
       },
 
+      'detail': (context) {
+        return DetailPage();
+      },
+
+      'masukanpendaftar': (context) {
+        return MasukanPendaftar();
+      },
 
       'login': (context) {
         return Login();

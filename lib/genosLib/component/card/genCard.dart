@@ -16,10 +16,11 @@ class GenCard extends StatelessWidget {
   final Widget? child;
   final EdgeInsets margin;
   final EdgeInsets padding;
-  final Function ontap;
+  final Function()? ontap;
 
-  GenCard(this.ontap,
-      {this.radius = 10,
+  GenCard(
+      {this.ontap,
+        this.radius = 10,
       this.height = double.infinity - 20,
       this.shadowRadius,
       this.width = 250,
@@ -33,7 +34,7 @@ class GenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ontap(),
+      onTap: ontap,
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius),
@@ -55,10 +56,10 @@ class GenCardVertical extends StatelessWidget {
   final String kota;
   final String tanggal;
 
-  final Function ontap;
+  final Function()? ontap;
 
   GenCardVertical(
-    this.ontap, {
+     {this.ontap,
     this.gambar =
         "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg",
     this.judul = "-",
@@ -68,7 +69,8 @@ class GenCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GenCard(() {},
+    return GenCard(
+         ontap: ontap,
         margin: EdgeInsets.only(
             left: GenDimen.cardMargin, right: GenDimen.cardMargin, bottom: 5),
         width: 180,
@@ -123,7 +125,7 @@ class GenCardArtikel extends StatelessWidget {
   final String isi;
   final String tanggal;
 
-  final Function ontap;
+  final Function()? ontap;
 
   GenCardArtikel(
       this.ontap, {
@@ -137,7 +139,7 @@ class GenCardArtikel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GenCard(
-      () {},
+      ontap: ontap,
       width: double.infinity,
       padding: EdgeInsets.all(15),
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),

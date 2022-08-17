@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,7 @@ class GenButton extends StatelessWidget {
   final Color textColor;
   final double? textSize;
   final EdgeInsets? padding;
-  final Function? ontap;
+  final Function()? ontap;
   final bool readyToHit;
   final bool useShadow;
   final String? imageleft;
@@ -34,13 +36,13 @@ class GenButton extends StatelessWidget {
       this.imageleft,
       this.readyToHit = true,
       this.useShadow = false,
-      required this.ontap})
+      this.ontap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return !readyToHit ? Center(child: Container(decoration: BoxDecoration(color: color,  borderRadius: BorderRadius.circular(radius),  ),padding: padding ??
-        EdgeInsets.symmetric(vertical: 20.w, horizontal: 20.w) , child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation(Colors.white),),)) :
+        EdgeInsets.symmetric(vertical: 0, horizontal: 0) , child: CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation(Colors.white),),)) :
     Material(
       shadowColor: Colors.black54,
       elevation: 5,
@@ -48,14 +50,14 @@ class GenButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       child: InkWell(
         borderRadius: BorderRadius.circular(radius),
-        onTap: ontap!.call() ?? () {},
+        onTap: ontap ?? () {},
         child:  Container(
     decoration: BoxDecoration(
 
     ),
             width: double.infinity,
             padding: padding ??
-                EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                EdgeInsets.symmetric(vertical: 0, horizontal: 0),
             child:
                 Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                   imageleft != null ? Image.asset(imageleft!, height: 30,) :
@@ -70,7 +72,7 @@ class GenButton extends StatelessWidget {
                   child: GenText(
                     text,
                     style: TextStyle(
-                        color: textColor, fontSize: textSize ?? 18),
+                        color: textColor, fontSize: textSize ?? 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -150,6 +152,36 @@ class GenButtonOutline extends StatelessWidget {
                         color: textColor,
                       ),
               ])),
+        ),
+      ),
+    );
+  }
+}
+
+class CircleButton extends StatelessWidget {
+  final GestureTapCallback? onTap;
+  final IconData? iconData;
+  final Double? size;
+
+  const CircleButton({Key? key, this.onTap, this.iconData, this.size}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double size = 30.0;
+
+    return new InkResponse(
+      onTap: onTap,
+      child: new Container(
+        width: size,
+        height: size,
+        decoration: new BoxDecoration(
+          color: GenColor.primaryColor,
+          shape: BoxShape.circle,
+        ),
+        child: new Icon(
+          iconData,
+          color: Colors.white,
+          size: 16,
         ),
       ),
     );
